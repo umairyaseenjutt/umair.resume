@@ -1,0 +1,451 @@
+The previous code generated an interactive **portfolio website** (designed with web navigation, full-width scrolling, and action buttons for browsers) rather than a standardized **A4 printable CV document**.
+
+---
+
+### Why It Looked Like a Website
+
+* **Portfolio Webpages:** Built with sticky top navigations, hero callout banners, and full-screen responsive sections meant for online visitors.
+* **CV Documents:** Built with strict page margins ($A4$ dimensions: 210mm $\times$ 297mm), structured headers, bulleted work histories, and fixed printable page breaks.
+
+
+
+---
+
+### Standalone Printable A4 CV Document (`cv.html`)
+
+Save the code below as `cv.html` on your computer or phone, open it in any browser (Chrome, Edge, Safari), and press **Ctrl + P** (or **Cmd + P** on Mac) $\rightarrow$ select **"Save as PDF"** with **"Background graphics"** enabled. It will format as a standard resume document.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Muhammad Umair - Curriculum Vitae</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 12mm 12mm;
+    background-color: #ffffff;
+  }
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  body {
+    margin: 0 auto;
+    max-width: 800px;
+    background-color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
+    font-size: 8.8pt;
+    line-height: 1.42;
+  }
+
+  /* HEADER BLOCK */
+  .header-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  .header-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .photo-td {
+    width: 90px;
+    vertical-align: middle;
+  }
+  .info-td {
+    vertical-align: middle;
+    padding-left: 16px;
+  }
+  .profile-photo {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #38bdf8;
+    display: block;
+    background-color: #334155;
+  }
+  .name {
+    font-size: 20pt;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin: 0 0 2px 0;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+  .title-tag {
+    font-size: 10pt;
+    font-weight: 600;
+    color: #38bdf8;
+    margin: 0 0 6px 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .contact-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .contact-td {
+    font-size: 8.2pt;
+    color: #e2e8f0;
+    padding-right: 12px;
+    vertical-align: top;
+  }
+  .contact-label {
+    color: #38bdf8;
+    font-weight: 600;
+  }
+
+  /* SECTION HEADERS */
+  .section-title {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #0f172a;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    margin-top: 10px;
+    margin-bottom: 6px;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #2563eb;
+  }
+
+  /* SUMMARY CARD */
+  .summary-card {
+    background-color: #f8fafc;
+    border-left: 4px solid #2563eb;
+    border-top: 1px solid #e2e8f0;
+    border-right: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 8px 12px;
+    border-radius: 0 6px 6px 0;
+    font-size: 8.7pt;
+    color: #334155;
+    line-height: 1.45;
+    margin-bottom: 10px;
+  }
+
+  /* SKILLS TABLE */
+  .skills-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 6px 0;
+    margin-left: -6px;
+    margin-right: -6px;
+    margin-bottom: 10px;
+  }
+  .skills-cell {
+    width: 33.33%;
+    vertical-align: top;
+    padding: 7px 10px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+  }
+  .skills-heading {
+    font-size: 8.2pt;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 2px;
+  }
+  .skill-pill {
+    display: inline-block;
+    background-color: #e0f2fe;
+    color: #0369a1;
+    font-size: 7.4pt;
+    font-weight: 600;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-right: 2px;
+    margin-bottom: 3px;
+  }
+
+  /* JOB CARDS */
+  .job-card {
+    margin-bottom: 8px;
+    background-color: #ffffff;
+    border: 1px solid #f1f5f9;
+    padding: 7px 10px;
+    border-radius: 6px;
+  }
+  .job-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2px;
+  }
+  .job-role {
+    font-size: 9.3pt;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .job-dates {
+    font-size: 8pt;
+    font-weight: 600;
+    color: #2563eb;
+    text-align: right;
+  }
+  .job-org {
+    font-size: 8.4pt;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 3px;
+  }
+  .bullet-list {
+    margin: 2px 0 0 0;
+    padding-left: 14px;
+  }
+  .bullet-list li {
+    margin-bottom: 2.5px;
+    font-size: 8.4pt;
+    color: #334155;
+    line-height: 1.38;
+  }
+
+  /* TWO COLUMN BOTTOM SECTION */
+  .bottom-grid {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 4px;
+  }
+  .col-edu {
+    width: 52%;
+    vertical-align: top;
+    padding-right: 8px;
+  }
+  .col-side {
+    width: 48%;
+    vertical-align: top;
+    padding-left: 8px;
+  }
+
+  .edu-item {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 3px solid #2563eb;
+    padding: 7px 10px;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 6px;
+  }
+  .edu-degree {
+    font-size: 8.8pt;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .edu-school {
+    font-size: 8.2pt;
+    color: #2563eb;
+    font-weight: 600;
+  }
+  .edu-date {
+    font-size: 7.8pt;
+    color: #64748b;
+  }
+  .cgpa-badge {
+    display: inline-block;
+    background-color: #dcfce7;
+    color: #15803d;
+    font-size: 7.5pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-top: 2px;
+  }
+
+  .side-box {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 7px 10px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+  }
+  .side-title {
+    font-size: 8.4pt;
+    font-weight: 700;
+    color: #0f172a;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 2px;
+  }
+  .side-list {
+    font-size: 8.2pt;
+    color: #334155;
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header-card">
+    <table class="header-table">
+      <tr>
+        <td class="photo-td">
+          <img src="profile_photo.jpg" class="profile-photo" alt="Muhammad Umair" onerror="this.style.display='none'">
+        </td>
+        <td class="info-td">
+          <h1 class="name">Muhammad Umair</h1>
+          <div class="title-tag">Product Marketing Specialist & SaaS Video Producer</div>
+          <table class="contact-table">
+            <tr>
+              <td class="contact-td"><span class="contact-label">Location:</span> Riyadh, Saudi Arabia</td>
+              <td class="contact-td"><span class="contact-label">Phone:</span> +966 53 621 0490</td>
+            </tr>
+            <tr>
+              <td class="contact-td"><span class="contact-label">Email:</span> umairyaseenjutt@gmail.com</td>
+              <td class="contact-td"><span class="contact-label">LinkedIn:</span> linkedin.com/in/umairyaseenjutt</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary-card">
+    Product Marketing Specialist, SaaS Video Producer, and Independent Content Specialist with <strong>7+ years of experience</strong> creating high-converting SaaS demo walkthroughs, product explainers, and customer education content[cite: 1, 8]. Combines technical mastery in video post-production and generative AI workflows with an academic background in Strategic Public Relations, Advertising, and Psychology (<strong>CGPA 3.47 / 4.00</strong>) to deconstruct complex technical software into engaging, user-friendly visual assets[cite: 1, 8].
+  </div>
+
+  <!-- SKILLS GRID -->
+  <div class="section-title">Core Competencies & Technical Toolkit</div>
+  <table class="skills-table">
+    <tr>
+      <td class="skills-cell">
+        <div class="skills-heading">Video & Motion Graphics</div>
+        <span class="skill-pill">SaaS Demo Videos</span>
+        <span class="skill-pill">Product Explainers</span>
+        <span class="skill-pill">Screencast Tutorials</span>
+        <span class="skill-pill">Customer Education</span>
+        <span class="skill-pill">Visual Pacing</span>
+      </td>
+      <td class="skills-cell">
+        <div class="skills-heading">Software Suite</div>
+        <span class="skill-pill">Camtasia</span>
+        <span class="skill-pill">Adobe Premiere Pro</span>
+        <span class="skill-pill">Adobe After Effects</span>
+        <span class="skill-pill">Final Cut Pro</span>
+        <span class="skill-pill">Audio Enhancement</span>
+      </td>
+      <td class="skills-cell">
+        <div class="skills-heading">AI & Strategic Marketing</div>
+        <span class="skill-pill">Generative AI Workflows</span>
+        <span class="skill-pill">Prompt Engineering</span>
+        <span class="skill-pill">Midjourney & Runway</span>
+        <span class="skill-pill">Brand Positioning</span>
+        <span class="skill-pill">Consumer Psychology</span>
+      </td>
+    </tr>
+  </table>
+
+  <!-- WORK EXPERIENCE -->
+  <div class="section-title">Professional Experience</div>
+
+  <div class="job-card">
+    <table class="job-table">
+      <tr>
+        <td class="job-role">Independent SaaS Video Producer & Motion Specialist</td>
+        <td class="job-dates">Dec 2019 – Present</td>
+      </tr>
+    </table>
+    <div class="job-org">Freelance / Remote Production Projects</div>
+    <ul class="bullet-list">
+      <li>Manage the complete end-to-end video production lifecycle—including scriptwriting, screen recordings, voiceovers, motion graphics, and post-production[cite: 1].</li>
+      <li>Collaborate with global tech clients (including AES International, Wondershare, and CMTrading) to simplify complex product architectures into clear visual narratives[cite: 1, 8].</li>
+      <li>Integrate generative AI tools into creative pipelines for rapid storyboarding, asset synthesis, and audio enhancement, cutting turnaround times[cite: 1, 8].</li>
+    </ul>
+  </div>
+
+  <div class="job-card">
+    <table class="job-table">
+      <tr>
+        <td class="job-role">SaaS Demo Video Creator & Explainer Specialist</td>
+        <td class="job-dates">Aug 2018 – Present</td>
+      </tr>
+    </table>
+    <div class="job-org">Upwork & Fiverr (Top-Rated Specialist)</div>
+    <ul class="bullet-list">
+      <li>Produced 100+ high-quality instructional software screencasts and promotional walkthroughs for international technology startups[cite: 1, 8].</li>
+      <li>Deconstruct complex software features into structured, step-by-step visual lessons designed to boost onboarding and feature adoption[cite: 1].</li>
+      <li>Maintained a consistent record of on-time delivery and 5-star client satisfaction ratings[cite: 1, 8].</li>
+    </ul>
+  </div>
+
+  <div class="job-card">
+    <table class="job-table">
+      <tr>
+        <td class="job-role">Online Course Instructor & Technical Trainer</td>
+        <td class="job-dates">2024 – Present</td>
+      </tr>
+    </table>
+    <div class="job-org">zakariaafzal.com (Online Education Platform)</div>
+    <ul class="bullet-list">
+      <li>Design and deliver structured training modules on prompt engineering, generative video workflows (Runway), and AI image synthesis (Midjourney)[cite: 8].</li>
+      <li>Train students and professionals to leverage AI-assisted tools to automate digital workflows and build practical career skills[cite: 8].</li>
+    </ul>
+  </div>
+
+  <div class="job-card">
+    <table class="job-table">
+      <tr>
+        <td class="job-role">Digital Content Creator</td>
+        <td class="job-dates">Jan 2016 – Present</td>
+      </tr>
+    </table>
+    <div class="job-org">YouTube Channel Creator & Manager</div>
+    <ul class="bullet-list">
+      <li>Produce and publish instructional video tutorials on digital editing techniques, video production workflows, and productivity tools[cite: 1, 8].</li>
+    </ul>
+  </div>
+
+  <!-- EDUCATION & PROFILE DETAILS -->
+  <div class="section-title">Education & Profile Details</div>
+  <table class="bottom-grid">
+    <tr>
+      <td class="col-edu">
+        <div class="edu-item">
+          <div class="edu-degree">MPhil in Public Relations & Advertising</div>
+          <div class="edu-school">University of the Punjab</div>
+          <div class="edu-date">October 2025 – May 2027</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">Bachelor of Science in Psychology</div>
+          <div class="edu-school">University of Sargodha</div>
+          <div class="edu-date">March 2020 – August 2024</div>
+          <div><span class="cgpa-badge">CGPA: 3.47 / 4.00</span></div>
+        </div>
+      </td>
+      <td class="col-side">
+        <div class="side-box">
+          <div class="side-title">Languages</div>
+          <div class="side-list">
+            <strong>English:</strong> Professional / Fluent[cite: 8]<br>
+            <strong>Urdu:</strong> Native / Bilingual[cite: 8]<br>
+            <strong>Arabic:</strong> Basic Working Knowledge[cite: 8]
+          </div>
+        </div>
+        <div class="side-box">
+          <div class="side-title">Key Core Strengths</div>
+          <div class="side-list">
+            • Psychology-backed audience engagement[cite: 8]<br>
+            • AI-accelerated video & motion pipelines[cite: 8]<br>
+            • Clear breakdown of technical software[cite: 1, 8]
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
+
+```
