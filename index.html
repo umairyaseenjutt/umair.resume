@@ -17,27 +17,27 @@
   }
   body {
     margin: 0 auto;
-    max-width: 840px;
+    max-width: 820px;
     background-color: #f1f5f9;
     padding: 16px 8px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: #1e293b;
     font-size: 8.7pt;
-    line-height: 1.42;
+    line-height: 1.40;
   }
   .cv-container {
     background-color: #ffffff;
     border-radius: 8px;
-    padding: 24px 26px;
+    padding: 20px 24px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   }
 
-  /* ACTION & TRUST BAR */
+  /* ACTION & TRUST BAR (ON-SCREEN ONLY) */
   .action-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     padding: 10px 14px;
     background-color: #0f172a;
     border-radius: 8px;
@@ -45,15 +45,11 @@
     flex-wrap: wrap;
     gap: 8px;
   }
-  .action-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
   .badge-link {
     color: #38bdf8;
     text-decoration: none;
     font-weight: 600;
+    margin-right: 12px;
     font-size: 8.5pt;
   }
   .badge-link:hover {
@@ -64,7 +60,7 @@
     color: #0f172a;
     border: none;
     font-weight: 700;
-    font-size: 8.8pt;
+    font-size: 9pt;
     padding: 6px 14px;
     border-radius: 6px;
     cursor: pointer;
@@ -74,20 +70,18 @@
     background-color: #7dd3fc;
   }
 
-  /* HEADER BLOCK */
+  /* RESPONSIVE HEADER BLOCK */
   .header-card {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     color: #ffffff;
-    padding: 18px 20px;
+    padding: 16px 18px;
     border-radius: 8px;
-    margin-bottom: 12px;
-  }
-  .header-flex {
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     gap: 16px;
   }
-  .photo-wrapper {
+  .photo-box {
     flex-shrink: 0;
   }
   .profile-photo {
@@ -99,71 +93,72 @@
     display: block;
     background-color: #334155;
   }
-  .info-wrapper {
+  .info-box {
     flex-grow: 1;
+    min-width: 0;
   }
   .name {
-    font-size: 19pt;
+    font-size: 18pt;
     font-weight: 800;
-    letter-spacing: -0.3px;
-    margin: 0 0 2px 0;
+    letter-spacing: -0.2px;
+    margin: 0 0 3px 0;
     color: #ffffff;
     text-transform: uppercase;
+    line-height: 1.15;
+    word-wrap: break-word;
   }
   .title-tag {
-    font-size: 9.8pt;
+    font-size: 9.2pt;
     font-weight: 600;
     color: #38bdf8;
-    margin: 0 0 6px 0;
-    letter-spacing: 0.5px;
+    margin: 0 0 8px 0;
+    letter-spacing: 0.3px;
     text-transform: uppercase;
+    line-height: 1.3;
+    word-wrap: break-word;
   }
   .contact-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 4px 12px;
     font-size: 8.2pt;
     color: #e2e8f0;
   }
-  .contact-item a {
-    color: #e2e8f0;
-    text-decoration: none;
-  }
-  .contact-item a:hover {
-    text-decoration: underline;
+  .contact-item {
+    word-break: break-word;
   }
   .contact-label {
     color: #38bdf8;
     font-weight: 600;
   }
-  .portfolios-row {
+  .header-links {
     margin-top: 6px;
-    padding-top: 6px;
-    border-top: 1px solid rgba(226, 232, 240, 0.15);
     font-size: 8pt;
     color: #cbd5e1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
   }
-  .portfolios-row a {
+  .header-links a {
     color: #38bdf8;
     text-decoration: none;
     font-weight: 600;
-    margin-right: 10px;
-    display: inline-block;
   }
-  .portfolios-row a:hover {
+  .header-links a:hover {
     text-decoration: underline;
   }
 
   /* SECTION HEADERS */
   .section-title {
-    font-size: 9.8pt;
+    font-size: 9.6pt;
     font-weight: 700;
     color: #0f172a;
     text-transform: uppercase;
     letter-spacing: 0.7px;
-    margin-top: 12px;
-    margin-bottom: 6px;
-    padding-bottom: 3px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding-bottom: 2px;
     border-bottom: 2px solid #2563eb;
   }
 
@@ -174,32 +169,36 @@
     border-top: 1px solid #e2e8f0;
     border-right: 1px solid #e2e8f0;
     border-bottom: 1px solid #e2e8f0;
-    padding: 8px 12px;
+    padding: 7px 11px;
     border-radius: 0 6px 6px 0;
-    font-size: 8.6pt;
+    font-size: 8.5pt;
     color: #334155;
-    line-height: 1.45;
-    margin-bottom: 10px;
+    line-height: 1.42;
+    margin-bottom: 8px;
   }
 
-  /* SKILLS GRID */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin-bottom: 10px;
+  /* SKILLS TABLE */
+  .skills-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 6px 0;
+    margin-left: -6px;
+    margin-right: -6px;
+    margin-bottom: 8px;
   }
   .skills-cell {
-    padding: 7px 10px;
+    width: 33.33%;
+    vertical-align: top;
+    padding: 6px 9px;
     background-color: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 6px;
   }
   .skills-heading {
-    font-size: 8.2pt;
+    font-size: 8pt;
     font-weight: 700;
     color: #1e3a8a;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     text-transform: uppercase;
     letter-spacing: 0.4px;
     border-bottom: 1px solid #cbd5e1;
@@ -211,43 +210,42 @@
     color: #0369a1;
     font-size: 7.2pt;
     font-weight: 600;
-    padding: 1.5px 5px;
+    padding: 1.5px 4.5px;
     border-radius: 4px;
     margin-right: 2px;
-    margin-bottom: 3px;
+    margin-bottom: 2.5px;
   }
 
   /* JOB CARDS */
   .job-card {
-    margin-bottom: 8px;
+    margin-bottom: 7px;
     background-color: #ffffff;
     border: 1px solid #f1f5f9;
-    padding: 7px 10px;
+    padding: 6px 9px;
     border-radius: 6px;
   }
-  .job-header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 4px;
+  .job-table {
+    width: 100%;
+    border-collapse: collapse;
     margin-bottom: 2px;
   }
   .job-role {
-    font-size: 9.2pt;
+    font-size: 9pt;
     font-weight: 700;
     color: #0f172a;
   }
   .job-dates {
-    font-size: 8pt;
+    font-size: 7.8pt;
     font-weight: 600;
     color: #2563eb;
+    text-align: right;
+    white-space: nowrap;
   }
   .job-org {
-    font-size: 8.3pt;
+    font-size: 8.2pt;
     font-weight: 600;
     color: #475569;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
   .job-org a {
     color: #2563eb;
@@ -259,43 +257,53 @@
   }
   .bullet-list {
     margin: 2px 0 0 0;
-    padding-left: 15px;
+    padding-left: 13px;
   }
   .bullet-list li {
     margin-bottom: 2px;
-    font-size: 8.3pt;
+    font-size: 8.2pt;
     color: #334155;
-    line-height: 1.38;
+    line-height: 1.35;
   }
 
   /* TWO COLUMN BOTTOM SECTION */
   .bottom-grid {
-    display: grid;
-    grid-template-columns: 52% 48%;
-    gap: 10px;
-    margin-top: 6px;
-    margin-bottom: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 4px;
+    margin-bottom: 8px;
   }
+  .col-edu {
+    width: 52%;
+    vertical-align: top;
+    padding-right: 6px;
+  }
+  .col-side {
+    width: 48%;
+    vertical-align: top;
+    padding-left: 6px;
+  }
+
   .edu-item {
     background-color: #f8fafc;
     border: 1px solid #e2e8f0;
     border-left: 3px solid #2563eb;
-    padding: 6px 10px;
+    padding: 6px 9px;
     border-radius: 0 6px 6px 0;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
   .edu-degree {
-    font-size: 8.6pt;
+    font-size: 8.5pt;
     font-weight: 700;
     color: #0f172a;
   }
   .edu-school {
-    font-size: 8.1pt;
+    font-size: 8pt;
     color: #2563eb;
     font-weight: 600;
   }
   .edu-date {
-    font-size: 7.6pt;
+    font-size: 7.5pt;
     color: #64748b;
   }
   .cgpa-badge {
@@ -304,54 +312,56 @@
     color: #15803d;
     font-size: 7.2pt;
     font-weight: 700;
-    padding: 1px 5px;
+    padding: 1px 4px;
     border-radius: 3px;
     margin-top: 2px;
   }
+
   .side-box {
     background-color: #f8fafc;
     border: 1px solid #e2e8f0;
-    padding: 7px 10px;
+    padding: 6px 9px;
     border-radius: 6px;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
   .side-title {
-    font-size: 8.3pt;
+    font-size: 8.2pt;
     font-weight: 700;
     color: #0f172a;
     text-transform: uppercase;
     letter-spacing: 0.4px;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
     border-bottom: 1px solid #cbd5e1;
-    padding-bottom: 2px;
+    padding-bottom: 1.5px;
   }
   .side-list {
-    font-size: 8.1pt;
+    font-size: 8pt;
     color: #334155;
-    line-height: 1.38;
+    line-height: 1.35;
   }
 
   /* QR CODES FOOTER SECTION */
   .qr-section {
     margin-top: 8px;
-    padding: 10px;
+    padding: 8px 10px;
     background-color: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
     page-break-inside: avoid;
   }
-  .qr-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+  .qr-table {
+    width: 100%;
+    border-collapse: collapse;
     text-align: center;
   }
   .qr-cell {
-    padding: 4px;
+    width: 25%;
+    vertical-align: top;
+    padding: 4px 6px;
   }
   .qr-img {
-    width: 72px;
-    height: 72px;
+    width: 68px;
+    height: 68px;
     border-radius: 4px;
     border: 1px solid #cbd5e1;
     display: block;
@@ -359,74 +369,47 @@
     background-color: #ffffff;
   }
   .qr-title {
-    font-size: 7.6pt;
+    font-size: 7.5pt;
     font-weight: 700;
     color: #0f172a;
     margin-bottom: 1px;
   }
   .qr-sub {
-    font-size: 6.9pt;
+    font-size: 6.8pt;
     color: #2563eb;
     font-weight: 600;
     text-decoration: none;
-    display: block;
-    word-break: break-word;
   }
   .qr-sub:hover {
     text-decoration: underline;
   }
 
-  /* MOBILE SCREEN OPTIMIZATION */
-  @media screen and (max-width: 640px) {
-    body {
-      padding: 6px;
-    }
-    .cv-container {
-      padding: 14px 12px;
-    }
-    .header-flex {
+  /* MOBILE RESPONSIVENESS */
+  @media (max-width: 620px) {
+    .header-card {
       flex-direction: column;
       text-align: center;
-      gap: 10px;
-    }
-    .name {
-      font-size: 16pt;
-    }
-    .title-tag {
-      font-size: 9pt;
     }
     .contact-grid {
       grid-template-columns: 1fr;
-      text-align: left;
-      gap: 6px;
-      margin-top: 6px;
-    }
-    .portfolios-row {
-      text-align: left;
-      line-height: 1.8;
-    }
-    .skills-grid {
-      grid-template-columns: 1fr;
-    }
-    .bottom-grid {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-    .qr-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px 6px;
-    }
-    .qr-img {
-      width: 80px;
-      height: 80px;
-    }
-    .action-bar {
-      flex-direction: column;
-      align-items: stretch;
       text-align: center;
     }
-    .action-links {
+    .header-links {
       justify-content: center;
+    }
+    .skills-table, .bottom-grid {
+      display: block;
+    }
+    .skills-cell, .col-edu, .col-side {
+      display: block;
+      width: 100%;
+      margin-bottom: 8px;
+      padding: 6px 0;
+    }
+    .qr-table, .qr-cell {
+      display: inline-block;
+      width: 48%;
+      margin-bottom: 8px;
     }
   }
 
@@ -445,15 +428,6 @@
     .action-bar {
       display: none;
     }
-    .bottom-grid {
-      grid-template-columns: 52% 48%;
-    }
-    .skills-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    .qr-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
   }
 </style>
 </head>
@@ -461,7 +435,7 @@
 
   <!-- ON-SCREEN ACTION & TRUST BAR -->
   <div class="action-bar">
-    <div class="action-links">
+    <div>
       <a href="https://www.fiverr.com/s/jyv2DyZ" target="_blank" class="badge-link">⭐ Fiverr: 800+ Orders (400+ 5★)</a>
       <a href="https://www.upwork.com/freelancers/umairyaseenjutt?mp_source=share" target="_blank" class="badge-link">🏆 Upwork: 200+ Clients (Top-Rated)</a>
     </div>
@@ -472,74 +446,76 @@
 
     <!-- HEADER BLOCK -->
     <div class="header-card">
-      <div class="header-flex">
-        <div class="photo-wrapper">
-          <img src="profile photo sqr.png" class="profile-photo" alt="Muhammad Umair" onerror="this.src='profile_photo.jpg'">
+      <div class="photo-box">
+        <img src="profile photo sqr.png" class="profile-photo" alt="Muhammad Umair" onerror="this.src='profile_photo.jpg'">
+      </div>
+      <div class="info-box">
+        <h1 class="name">Muhammad Umair</h1>
+        <div class="title-tag">Product Marketing Video Specialist | PR Strategist | SaaS Explainer Producer</div>
+        <div class="contact-grid">
+          <div class="contact-item"><span class="contact-label">Location:</span> Riyadh, Saudi Arabia</div>
+          <div class="contact-item"><span class="contact-label">Phone / WA:</span> +966 53 621 0490</div>
+          <div class="contact-item"><span class="contact-label">Email:</span> umairyaseenjutt@gmail.com</div>
+          <div class="contact-item"><span class="contact-label">LinkedIn:</span> linkedin.com/in/umairyaseenjutt</div>
         </div>
-        <div class="info-wrapper">
-          <h1 class="name">Muhammad Umair</h1>
-          <div class="title-tag">Product Marketing Video Specialist | PR Strategist | SaaS Explainer Producer</div>
-          <div class="contact-grid">
-            <div class="contact-item"><span class="contact-label">Location:</span> Riyadh, Saudi Arabia</div>
-            <div class="contact-item"><span class="contact-label">Phone / WA:</span> <a href="https://wa.me/966536210490" target="_blank">+966 53 621 0490</a></div>
-            <div class="contact-item"><span class="contact-label">Email:</span> <a href="mailto:umairyaseenjutt@gmail.com">umairyaseenjutt@gmail.com</a></div>
-            <div class="contact-item"><span class="contact-label">LinkedIn:</span> <a href="https://linkedin.com/in/umairyaseenjutt" target="_blank">linkedin.com/in/umairyaseenjutt</a></div>
-          </div>
-          <div class="portfolios-row">
-            <span class="contact-label">Portfolios:</span> 
-            <a href="https://www.youtube.com/playlist?list=PLzxfLA-b-Eqwz-BB-7EIwGyjjv_Nym-uH" target="_blank">🎬 SaaS Demos</a>
-            <a href="https://www.youtube.com/playlist?list=PLzxfLA-b-EqzWXl4UGuA92-Xq7Z63ygN0" target="_blank">📚 Training Videos</a>
-            <a href="https://www.youtube.com/@mbastudio.online/playlists" target="_blank">📺 MBA Studio Channel</a>
-          </div>
+        <div class="header-links">
+          <span class="contact-label">Portfolios:</span> 
+          <a href="https://www.youtube.com/playlist?list=PLzxfLA-b-Eqwz-BB-7EIwGyjjv_Nym-uH" target="_blank">🎬 SaaS Demos</a>
+          <a href="https://www.youtube.com/playlist?list=PLzxfLA-b-EqzWXl4UGuA92-Xq7Z63ygN0" target="_blank">📚 Training Videos</a>
+          <a href="https://www.youtube.com/@mbastudio.online/playlists" target="_blank">📺 MBA Studio Channel</a>
         </div>
       </div>
     </div>
 
     <!-- SUMMARY -->
     <div class="summary-card">
-      Results-driven <strong>Product Marketing Video Specialist, PR Strategist, and Multimedia Producer</strong> with over 7 years of global experience delivering high-converting SaaS demo walkthroughs, official software training libraries, and digital brand campaigns[cite: 1, 3]. Combines academic training in <strong>Strategic PR, Advertising, and Consumer Psychology (CGPA 3.47 / 4.00)</strong> with technical mastery in video post-production and generative AI workflows[cite: 3]. Proven track record managing executive PR and training video libraries for US healthcare SaaS (<a href="https://clinichq.com/" target="_blank" style="color: #2563eb; font-weight: 600; text-decoration: none;">ClinicHQ</a>), producing official YouTube tutorials for global software brands (<a href="https://www.youtube.com/WondershareDemoCreator" target="_blank" style="color: #2563eb; font-weight: 600; text-decoration: none;">Wondershare DemoCreator</a>), animated promos (<a href="https://www.doratoon.com/" target="_blank" style="color: #2563eb; font-weight: 600; text-decoration: none;">Doratoon.com</a>), and financial academy courses (<a href="https://academy.cmtrading.com/courses" target="_blank" style="color: #2563eb; font-weight: 600; text-decoration: none;">CMTrading Academy</a>) while maintaining a verified 5.0★ rating across <strong>800+ Fiverr orders</strong> and <strong>200+ Upwork enterprise clients</strong>.
+      Results-driven <strong>Product Marketing Video Specialist, PR Strategist, and Multimedia Producer</strong> with over 7 years of global experience delivering high-converting SaaS demo walkthroughs, official software training libraries, and digital brand campaigns. Combines academic training in <strong>Strategic PR, Advertising, and Consumer Psychology (CGPA 3.47 / 4.00)</strong> with technical mastery in video post-production and generative AI workflows. Proven track record managing executive PR and training video libraries for US healthcare SaaS (<a href="https://clinichq.com/" target="_blank" style="color: #2563eb; font-weight: 600; text-decoration: none;">ClinicHQ</a>), producing official YouTube tutorials for global software brands (<a href="https://www.youtube.com/WondershareDemoCreator" target="_blank" style="color: #2563eb; font-weight: 600; text-decoration: none;">Wondershare DemoCreator</a>), animated promos (<a href="https://www.doratoon.com/" target="_blank" style="color: #2563eb; font-weight: 600; text-decoration: none;">Doratoon.com</a>), and financial academy courses (<a href="https://academy.cmtrading.com/courses" target="_blank" style="color: #2563eb; font-weight: 600; text-decoration: none;">CMTrading Academy</a>) while maintaining a verified 5.0★ rating across <strong>800+ Fiverr orders</strong> and <strong>200+ Upwork enterprise clients</strong>.
     </div>
 
     <!-- SKILLS GRID -->
     <div class="section-title">Core Competencies & Technical Toolkit</div>
-    <div class="skills-grid">
-      <div class="skills-cell">
-        <div class="skills-heading">Video & Motion Graphics</div>
-        <span class="skill-pill">SaaS Demo Videos</span>
-        <span class="skill-pill">Product Explainers</span>
-        <span class="skill-pill">Screencast Tutorials</span>
-        <span class="skill-pill">Course Post-Production</span>
-        <span class="skill-pill">Visual Pacing</span>
-        <span class="skill-pill">Audio Enhancement</span>
-      </div>
-      <div class="skills-cell">
-        <div class="skills-heading">Software Suite</div>
-        <span class="skill-pill">Camtasia</span>
-        <span class="skill-pill">Adobe Premiere Pro</span>
-        <span class="skill-pill">Adobe After Effects</span>
-        <span class="skill-pill">Final Cut Pro</span>
-        <span class="skill-pill">Screen Recording</span>
-        <span class="skill-pill">LMS Media Packaging</span>
-      </div>
-      <div class="skills-cell">
-        <div class="skills-heading">PR, Marketing & AI</div>
-        <span class="skill-pill">Executive PR & Branding</span>
-        <span class="skill-pill">Consumer Psychology</span>
-        <span class="skill-pill">Generative AI Video (Runway)</span>
-        <span class="skill-pill">Prompt Engineering (ChatGPT)</span>
-        <span class="skill-pill">Midjourney Synthesis</span>
-        <span class="skill-pill">GTM Launch Strategy</span>
-      </div>
-    </div>
+    <table class="skills-table">
+      <tr>
+        <td class="skills-cell">
+          <div class="skills-heading">Video & Motion Graphics</div>
+          <span class="skill-pill">SaaS Demo Videos</span>
+          <span class="skill-pill">Product Explainers</span>
+          <span class="skill-pill">Screencast Tutorials</span>
+          <span class="skill-pill">Course Post-Production</span>
+          <span class="skill-pill">Visual Pacing</span>
+          <span class="skill-pill">Audio Enhancement</span>
+        </td>
+        <td class="skills-cell">
+          <div class="skills-heading">Software Suite</div>
+          <span class="skill-pill">Camtasia</span>
+          <span class="skill-pill">Adobe Premiere Pro</span>
+          <span class="skill-pill">Adobe After Effects</span>
+          <span class="skill-pill">Final Cut Pro</span>
+          <span class="skill-pill">Screen Recording</span>
+          <span class="skill-pill">LMS Media Packaging</span>
+        </td>
+        <td class="skills-cell">
+          <div class="skills-heading">PR, Marketing & AI</div>
+          <span class="skill-pill">Executive PR & Branding</span>
+          <span class="skill-pill">Consumer Psychology</span>
+          <span class="skill-pill">Generative AI Video (Runway)</span>
+          <span class="skill-pill">Prompt Engineering (ChatGPT)</span>
+          <span class="skill-pill">Midjourney Synthesis</span>
+          <span class="skill-pill">GTM Launch Strategy</span>
+        </td>
+      </tr>
+    </table>
 
     <!-- WORK EXPERIENCE -->
     <div class="section-title">Professional Experience & Enterprise Honorable Mentions</div>
 
     <div class="job-card">
-      <div class="job-header-flex">
-        <div class="job-role">Instructional Video Producer & Executive PR Content Strategist</div>
-        <div class="job-dates">2021 – Present (3+ Years)</div>
-      </div>
+      <table class="job-table">
+        <tr>
+          <td class="job-role">Instructional Video Producer & Executive PR Content Strategist</td>
+          <td class="job-dates">2021 – Present (3+ Years)</td>
+        </tr>
+      </table>
       <div class="job-org"><a href="https://clinichq.com/" target="_blank">ClinicHQ</a> | US Pet Medical Facility SaaS (Hired by Founder Gina Clemmer via Upwork)</div>
       <ul class="bullet-list">
         <li>Personally engaged by founder <strong>Gina Clemmer</strong> to author and produce the complete customer education, clinic staff onboarding, and software training video library for the premier pet clinic software in the US.</li>
@@ -549,10 +525,12 @@
     </div>
 
     <div class="job-card">
-      <div class="job-header-flex">
-        <div class="job-role">Official Video Content Producer & Creator</div>
-        <div class="job-dates">2020 – Present</div>
-      </div>
+      <table class="job-table">
+        <tr>
+          <td class="job-role">Official Video Content Producer & Creator</td>
+          <td class="job-dates">2020 – Present</td>
+        </tr>
+      </table>
       <div class="job-org"><a href="https://www.youtube.com/WondershareDemoCreator" target="_blank">Wondershare DemoCreator</a> | Global Creative Software Brand (Remote via Fiverr)</div>
       <ul class="bullet-list">
         <li>Script, record, and edit official instructional video content, product walkthroughs, and software tutorials for Wondershare DemoCreator's official YouTube channel.</li>
@@ -561,10 +539,12 @@
     </div>
 
     <div class="job-card">
-      <div class="job-header-flex">
-        <div class="job-role">SaaS Video Marketing & Animation Specialist</div>
-        <div class="job-dates">2022 – Present</div>
-      </div>
+      <table class="job-table">
+        <tr>
+          <td class="job-role">SaaS Video Marketing & Animation Specialist</td>
+          <td class="job-dates">2022 – Present</td>
+        </tr>
+      </table>
       <div class="job-org"><a href="https://www.doratoon.com/" target="_blank">Doratoon.com</a> | Fintech & Cloud Animation Platform (Remote via Fiverr)</div>
       <ul class="bullet-list">
         <li>Produced marketing promos, animated explainer videos, and UI walkthroughs for Doratoon's cloud animation and fintech software suite.</li>
@@ -573,10 +553,12 @@
     </div>
 
     <div class="job-card">
-      <div class="job-header-flex">
-        <div class="job-role">E-Learning Multimedia Editor & Course Producer</div>
-        <div class="job-dates">2021 – Present</div>
-      </div>
+      <table class="job-table">
+        <tr>
+          <td class="job-role">E-Learning Multimedia Editor & Course Producer</td>
+          <td class="job-dates">2021 – Present</td>
+        </tr>
+      </table>
       <div class="job-org"><a href="https://academy.cmtrading.com/courses" target="_blank">CMTrading Academy</a> | International Brokerage & Financial Education Platform</div>
       <ul class="bullet-list">
         <li>Edit and produce structured financial market masterclasses, risk management modules, and trading video courses for CMTrading Academy's LMS.</li>
@@ -585,10 +567,12 @@
     </div>
 
     <div class="job-card">
-      <div class="job-header-flex">
-        <div class="job-role">Online Course Instructor & Technical Trainer</div>
-        <div class="job-dates">2024 – Present</div>
-      </div>
+      <table class="job-table">
+        <tr>
+          <td class="job-role">Online Course Instructor & Technical Trainer</td>
+          <td class="job-dates">2024 – Present</td>
+        </tr>
+      </table>
       <div class="job-org"><a href="https://zakariaafzal.com" target="_blank">zakariaafzal.com</a> | Online Vocational & AI Education</div>
       <ul class="bullet-list">
         <li>Design and deliver interactive digital curricula on prompt engineering, generative video (Runway Gen-2), and AI image synthesis (Midjourney)[cite: 3].</li>
@@ -596,10 +580,12 @@
     </div>
 
     <div class="job-card">
-      <div class="job-header-flex">
-        <div class="job-role">Top-Rated Freelance Multimedia Specialist</div>
-        <div class="job-dates">2018 – Present</div>
-      </div>
+      <table class="job-table">
+        <tr>
+          <td class="job-role">Top-Rated Freelance Multimedia Specialist</td>
+          <td class="job-dates">2018 – Present</td>
+        </tr>
+      </table>
       <div class="job-org">Fiverr & Upwork Global Marketplaces</div>
       <ul class="bullet-list">
         <li>Delivered <strong>800+ total orders</strong> on Fiverr (since 2019) with <strong>400+ verified 5-star reviews</strong>, and served <strong>200+ long-term enterprise clients</strong> on Upwork (since 2018) with a 100% Job Success Score.</li>
@@ -608,65 +594,69 @@
 
     <!-- EDUCATION & PROFILE DETAILS -->
     <div class="section-title">Education & Profile Details</div>
-    <div class="bottom-grid">
-      <div class="col-edu">
-        <div class="edu-item">
-          <div class="edu-degree">MPhil in Public Relations & Advertising</div>
-          <div class="edu-school">University of the Punjab</div>
-          <div class="edu-date">October 2025 – May 2027</div>
-        </div>
-        <div class="edu-item">
-          <div class="edu-degree">Bachelor of Science in Psychology</div>
-          <div class="edu-school">University of Sargodha</div>
-          <div class="edu-date">March 2020 – August 2024</div>
-          <div><span class="cgpa-badge">CGPA: 3.47 / 4.00</span></div>
-        </div>
-      </div>
-      <div class="col-side">
-        <div class="side-box">
-          <div class="side-title">Languages</div>
-          <div class="side-list">
-            <strong>English:</strong> Professional / Fluent[cite: 3]<br>
-            <strong>Urdu:</strong> Native / Bilingual[cite: 3]<br>
-            <strong>Arabic:</strong> Basic Working Knowledge[cite: 3]
+    <table class="bottom-grid">
+      <tr>
+        <td class="col-edu">
+          <div class="edu-item">
+            <div class="edu-degree">MPhil in Public Relations & Advertising</div>
+            <div class="edu-school">University of the Punjab</div>
+            <div class="edu-date">October 2025 – May 2027</div>
           </div>
-        </div>
-        <div class="side-box">
-          <div class="side-title">Verified Track Record</div>
-          <div class="side-list">
-            • 800+ Orders & 400+ 5★ Reviews (Fiverr)<br>
-            • 200+ Long-Term Clients (Upwork Top-Rated)<br>
-            • 3+ Years US Executive PR & Training (ClinicHQ)
+          <div class="edu-item">
+            <div class="edu-degree">Bachelor of Science in Psychology</div>
+            <div class="edu-school">University of Sargodha</div>
+            <div class="edu-date">March 2020 – August 2024</div>
+            <div><span class="cgpa-badge">CGPA: 3.47 / 4.00</span></div>
           </div>
-        </div>
-      </div>
-    </div>
+        </td>
+        <td class="col-side">
+          <div class="side-box">
+            <div class="side-title">Languages</div>
+            <div class="side-list">
+              <strong>English:</strong> Professional / Fluent[cite: 3]<br>
+              <strong>Urdu:</strong> Native / Bilingual[cite: 3]<br>
+              <strong>Arabic:</strong> Basic Working Knowledge[cite: 3]
+            </div>
+          </div>
+          <div class="side-box">
+            <div class="side-title">Verified Track Record</div>
+            <div class="side-list">
+              • 800+ Orders & 400+ 5★ Reviews (Fiverr)<br>
+              • 200+ Long-Term Clients (Upwork Top-Rated)<br>
+              • 3+ Years US Executive PR & Training (ClinicHQ)
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
 
     <!-- SCAN TO CONNECT (LIVE QR CODES) -->
     <div class="section-title">Scan to Connect & View Work</div>
     <div class="qr-section">
-      <div class="qr-grid">
-        <div class="qr-cell">
-          <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwa.me%2F966536210490" alt="WhatsApp QR">
-          <div class="qr-title">WhatsApp Direct</div>
-          <a href="https://wa.me/966536210490" target="_blank" class="qr-sub">+966 53 621 0490</a>
-        </div>
-        <div class="qr-cell">
-          <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwww.fiverr.com%2Fs%2Fjyv2DyZ" alt="Fiverr QR">
-          <div class="qr-title">Fiverr Profile</div>
-          <a href="https://www.fiverr.com/s/jyv2DyZ" target="_blank" class="qr-sub">800+ Orders (400+ 5★)</a>
-        </div>
-        <div class="qr-cell">
-          <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwww.upwork.com%2Ffreelancers%2Fumairyaseenjutt" alt="Upwork QR">
-          <div class="qr-title">Upwork Profile</div>
-          <a href="https://www.upwork.com/freelancers/umairyaseenjutt" target="_blank" class="qr-sub">Top-Rated Freelancer</a>
-        </div>
-        <div class="qr-cell">
-          <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwww.youtube.com%2F%40mbastudio.online%2Fplaylists" alt="Portfolio QR">
-          <div class="qr-title">Video Playlists</div>
-          <a href="https://www.youtube.com/@mbastudio.online/playlists" target="_blank" class="qr-sub">SaaS Demos & Tutorials</a>
-        </div>
-      </div>
+      <table class="qr-table">
+        <tr>
+          <td class="qr-cell">
+            <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwa.me%2F966536210490" alt="WhatsApp QR">
+            <div class="qr-title">WhatsApp Direct</div>
+            <a href="https://wa.me/966536210490" target="_blank" class="qr-sub">+966 53 621 0490</a>
+          </td>
+          <td class="qr-cell">
+            <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwww.fiverr.com%2Fs%2Fjyv2DyZ" alt="Fiverr QR">
+            <div class="qr-title">Fiverr Profile</div>
+            <a href="https://www.fiverr.com/s/jyv2DyZ" target="_blank" class="qr-sub">800+ Orders (400+ 5★)</a>
+          </td>
+          <td class="qr-cell">
+            <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwww.upwork.com%2Ffreelancers%2Fumairyaseenjutt" alt="Upwork QR">
+            <div class="qr-title">Upwork Profile</div>
+            <a href="https://www.upwork.com/freelancers/umairyaseenjutt" target="_blank" class="qr-sub">Top-Rated Freelancer</a>
+          </td>
+          <td class="qr-cell">
+            <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwww.youtube.com%2F%40mbastudio.online%2Fplaylists" alt="Portfolio QR">
+            <div class="qr-title">Video Playlists</div>
+            <a href="https://www.youtube.com/@mbastudio.online/playlists" target="_blank" class="qr-sub">SaaS Demos & Demos</a>
+          </td>
+        </tr>
+      </table>
     </div>
 
   </div>
